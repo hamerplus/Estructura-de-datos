@@ -1,0 +1,75 @@
+#include <iostream>
+using namespace std;
+
+struct persona{
+	int codigo_cliente;
+	string nombre_cliente;
+	string apellido_cliente;
+	int cantidad_fotos;
+	float valor_unitario;
+};
+persona clientes[4];
+
+int cod;
+int op;
+int vec;
+float valort;
+bool mseguir = true;
+int main()
+{
+	do{
+		cout<<"menu"<<endl;
+		cout<<"1. ingresar datos"<<endl;
+		cout<<"2. consultar clientes por codigo"<<endl;
+		cout<<"3. valor total de clientes"<<endl;
+		cout<<"4. eliminacion clientes por datos"<<endl;
+		cout<<"8. salir"<<endl;
+		cout<<"ingrese opcion "<<endl;
+		cin>>op;
+		
+		switch(op)
+		{
+			case 1: for (int i=0;i<=3;i++){
+				    cout<<"Ingrese codigo cliente "<<endl;
+	                cin>>clientes[i].codigo_cliente;
+	                cout<<"Ingrese el nombre "<<endl;
+	                cin>>clientes[i].nombre_cliente;
+	                cout<<"Ingrese el apellido "<<endl;
+	                cin>>clientes[i].apellido_cliente;
+	                cout<<"Ingrese la cantidad de fotos "<<endl;
+	                cin>>clientes[i].cantidad_fotos;
+	                cout<<"ingrese el valor unitario "<<endl;
+	                cin>>clientes[i].valor_unitario;
+			}
+			break;
+			case 2: cout<<"ingrese codigo a buscar"<<endl;
+                    cin>>cod;
+                    for (int i=0;i<=3;i++)
+                    {
+	                   if (clientes[i].codigo_cliente==cod){
+		               cout<<"clietes encontrado"<<endl;
+		               cout<<clientes[i].codigo_cliente<<endl;
+		               cout<<clientes[i].nombre_cliente<<endl;
+                	   }
+	                cout<<i<<endl;
+	                system("pause");
+                    }
+                    break;
+            case 3: cout<<"valor de ventas"<<endl;
+                    for (int i=0;i<=3;i++)
+                    {
+                       cout<<clientes[i].codigo_cliente<<"\t"<<clientes[i].nombre_cliente<<"\t"<<clientes[i].cantidad_fotos<<"\t"<<clientes[i].valor_unitario<<"\t"<<clientes[i].cantidad_fotos*clientes[i].valor_unitario<<endl;     
+					}
+                    break;
+            case 4: for (int i=0;i<=3;i++)
+			        cout<<"ingrese el codigo que quiere eliminar"<<endl;
+			        {
+			        	cout<<clientes[i].codigo_cliente==0<<"\t"<<clientes[i].nombre_cliente==" "<<"\t"<<clientes[i].cantidad_fotos==" "<<"\t"<<clientes[i].valor_unitario==0<<endl;
+					} 
+					cout<<"codigo de la lista eliminado"<<endl;
+					break;
+		}
+	}while(mseguir==true);
+
+
+}
